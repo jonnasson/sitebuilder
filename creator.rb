@@ -1,16 +1,23 @@
 fileHtml = File.new("index.html", "w+")
-fileHtml.puts "<HTML><BODY BGCOLOR='green'>"
-fileHtml.puts "<CENTER>this is neat</CENTER>"
-fileHtml.puts "</BODY></HTML>"
-fileHtml.puts "</BODY></HTML>"
-fileHtml.puts "</BODY></HTML>"
+fileHtml.puts '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p> This is awesome <p>
+</body>
+</html>
+'
 fileHtml.close()
 
 fileHtml = File.new("style.css", "w+")
 fileHtml.puts "
 body {
     color: green;
-    background: red;
 }
 "
 fileHtml.close()
