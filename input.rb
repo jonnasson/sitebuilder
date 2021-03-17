@@ -7,6 +7,8 @@ footer = gets.chomp
 puts 'Do you want a navigation bar?'
 navinput = gets.chomp
 if navinput == "yes" || navinput == "y"
+    puts 'Provide a logo URL please'
+    logourl = gets.chomp
     puts 'How many items in the navbar?'
     itemcount = gets.chomp.to_i
     puts 'Navbar fixed?'
@@ -38,18 +40,28 @@ fileHtml.puts "<!DOCTYPE html>
 if navinput == 'yes' || navinput == 'y'
     fileHtml.puts '<div class="container col-lg-8">'
     if navbarfixed == 'yes' || navbarfixed == 'y'
-        fileHtml.puts '<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">'
+        fileHtml.puts '<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">'
         else
-        fileHtml.puts '<nav class="navbar navbar-expand-lg navbar-light bg-light">'
+        fileHtml.puts '<nav class="navbar navbar-expand-md navbar-light bg-light">'
     end
     fileHtml.puts '
     <div class="container col-lg-8">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">'
+    unless logourl.empty?
+        fileHtml.puts "<img
+        src='#{logourl}'
+        alt=''
+        style='height: 50px; width: auto'
+        />"
+    else
+        fileHtml.puts "#{sitename}"
+    end
+    fileHtml.puts'</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">'
+    <ul class="navbar-nav ml-auto">'
     itemcount.times do
         fileHtml.puts '<li class="nav-item">
         <a class="nav-link" href="#">Item</a>
@@ -70,7 +82,7 @@ end
 
 # container content start
     fileHtml.puts '
-    <div class="container pb-5" style="padding-top: 60px; min-height: 95vh">
+    <div class="container pb-5" style="padding-top: 80px; min-height: 95vh">
     <h1>H1 Headline</h1>
     <h2>H2 Headline</h2>
     <h3>H3 Headline</h3>
