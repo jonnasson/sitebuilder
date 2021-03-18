@@ -1,24 +1,31 @@
 # INPUT START
 
-puts 'Name of your site'
+puts 'Website title'
 sitename = gets.chomp
-puts 'Footer yes or no'
+puts 'Footer? (y or n)'
 footer = gets.chomp
-puts 'Do you want a navigation bar?'
+puts 'Navigation bar? (y or n)'
 navinput = gets.chomp
 if navinput == "yes" || navinput == "y"
-    puts 'Provide a logo URL please'
+    puts 'Logo URL (string or leave blank for to insert website title)'
     logourl = gets.chomp
-    puts 'How many items in the navbar?'
+    puts 'Item count navbar (integer)'
     itemcount = gets.chomp.to_i
-    puts 'Navbar fixed?'
+    puts 'Navbar fixed? (y or n)'
     navbarfixed = gets.chomp
-    puts 'Searchbar?'
+    puts 'Searchbar? (y or n)'
     searchbar = gets.chomp
 end
 
 # puts 'Which color should your background have'
 # background = gets.chomp
+
+#image slider?
+# if yes then how many (default e.g. 3)
+#hero banner
+# cards
+# if yes how many cards
+# buttons
 
 # INPUT END
 
@@ -33,25 +40,33 @@ fileHtml.puts "<!DOCTYPE html>
     <link rel='stylesheet' href='stylenew.css'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css' integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous'>
 </head>
-<body>"
+<body
+class='bg-light'
+style='min-height: 100vh;
+position: relative;
+margin: 0 auto;
+padding-bottom: 56px;
+box-sizing: border-box;'
+>"
 
 # CONTENT START
 # navbar start
 if navinput == 'yes' || navinput == 'y'
-    fileHtml.puts '<div class="container col-lg-8">'
     if navbarfixed == 'yes' || navbarfixed == 'y'
-        fileHtml.puts '<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">'
+        fileHtml.puts '<div class="container col bg-light">'
+        fileHtml.puts '<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light bg-white border-bottom border-grey">'
         else
-        fileHtml.puts '<nav class="navbar navbar-expand-md navbar-light bg-light">'
+        fileHtml.puts '<div class="container col bg-light" style="padding-left: 0px; padding-right: 0px">'
+        fileHtml.puts '<nav class="navbar navbar-expand-lg navbar-light bg-light bg-white border-bottom border-grey">'
     end
     fileHtml.puts '
-    <div class="container col-lg-8">
-    <a class="navbar-brand" href="#">'
+    <div class="container">
+    <a class="navbar-brand py-0" href="#">'
     unless logourl.empty?
         fileHtml.puts "<img
         src='#{logourl}'
         alt=''
-        style='height: 50px; width: auto'
+        style='height: auto; width: 40px; border-radius: 8px;'
         />"
     else
         fileHtml.puts "#{sitename}"
@@ -69,9 +84,9 @@ if navinput == 'yes' || navinput == 'y'
     end
     fileHtml.puts '</ul>'
     if searchbar == 'yes' || searchbar == 'y'
-        fileHtml.puts '<form class="form-inline my-2 my-lg-0">
+        fileHtml.puts '<form class="form-inline my-0 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn btn-outline-success my-0 my-sm-0" type="submit">Search</button>
       </form>'
     end
     fileHtml.puts '</div>'
@@ -81,20 +96,37 @@ end
 # navbar end
 
 # container content start
+    if navbarfixed == 'yes' || navbarfixed == 'y'
+        fileHtml.puts '<div class="container pb-5" style="padding-top: 76px">'
+    else
+        fileHtml.puts '<div class="container pb-5" style="padding-top: 20px">'
+    end
     fileHtml.puts '
-    <div class="container pb-5" style="padding-top: 80px; min-height: 95vh">
     <h1>H1 Headline</h1>
     <h2>H2 Headline</h2>
     <h3>H3 Headline</h3>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.'
+    fileHtml.puts '
+    <p>
+    <h1>H1 Headline</h1>
+    <h2>H2 Headline</h2>
+    <h3>H3 Headline</h3>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.
+    </p>
     </div>'
+    fileHtml.puts '</div>'
 # container content end
 if footer == "yes" || footer == 'y'
-    fileHtml.puts "<div class='footer text-center pb-2'>
+    fileHtml.puts "<div class='row mx-0 text-muted justify-content-center align-items-center w-100 bg-white'
+    style='position: absolute; bottom: 0; height: 56px'
+  >
     #{sitename} © "
     time = Time.new
     fileHtml.puts time.year
-    fileHtml.puts '</div>'
     fileHtml.puts '</div>'
 end
 
@@ -114,8 +146,8 @@ fileHtml.close()
 
 fileCSS = File.new("stylenew.css", "w+")
 fileCSS.puts "
-body {
-    background: ;
+.navbar {
+    max-height: 56px;
 }
 "
 fileCSS.close()
