@@ -66,7 +66,7 @@ if navinput == 'yes' || navinput == 'y'
         fileHtml.puts "<img
         src='#{logourl}'
         alt=''
-        style='height: auto; width: 40px; border-radius: 8px;'
+        style='max-height: 56px; width: auto; border-radius: 8px;'
         />"
     else
         fileHtml.puts "#{sitename}"
@@ -147,7 +147,7 @@ fileHtml.close()
 fileCSS = File.new("stylenew.css", "w+")
 fileCSS.puts "
 .navbar {
-    max-height: 56px;
+    
 }
 "
 fileCSS.close()
