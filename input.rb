@@ -44,29 +44,30 @@ fileHtml.puts "<!DOCTYPE html>
 class='bg-light'
 style='min-height: 100vh;
 position: relative;
-margin: 0 auto;
-padding-bottom: 56px;
-box-sizing: border-box;'
->"
+margin: 0 auto;"
+if footer == "yes" || footer == 'y'
+fileHtml.puts "padding-bottom: 56px;"
+end
+fileHtml.puts "box-sizing: border-box;'>"
 
 # CONTENT START
 # navbar start
 if navinput == 'yes' || navinput == 'y'
     if navbarfixed == 'yes' || navbarfixed == 'y'
-        fileHtml.puts '<div class="container col bg-light">'
+        fileHtml.puts '<div class="container col-12 bg-light">'
         fileHtml.puts '<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light bg-white border-bottom border-grey">'
         else
-        fileHtml.puts '<div class="container col bg-light" style="padding-left: 0px; padding-right: 0px">'
+        fileHtml.puts '<div class="container col-12 bg-light" style="padding-left: 0px; padding-right: 0px">'
         fileHtml.puts '<nav class="navbar navbar-expand-lg navbar-light bg-light bg-white border-bottom border-grey">'
     end
     fileHtml.puts '
-    <div class="container">
+    <div class="container col-lg-10 col-md-10 px-0">
     <a class="navbar-brand py-0" href="#">'
     unless logourl.empty?
         fileHtml.puts "<img
         src='#{logourl}'
         alt=''
-        style='max-height: 56px; width: auto; border-radius: 8px;'
+        style='max-height: 40px; width: auto; border-radius: 8px;'
         />"
     else
         fileHtml.puts "#{sitename}"
@@ -96,11 +97,15 @@ end
 # navbar end
 
 # container content start
+if navinput == 'yes' || navinput == 'y'
     if navbarfixed == 'yes' || navbarfixed == 'y'
-        fileHtml.puts '<div class="container pb-5" style="padding-top: 76px">'
+        fileHtml.puts '<div class="container col-lg-10 col-md-10 px-0 pb-5" style="padding-top: 76px">'
     else
-        fileHtml.puts '<div class="container pb-5" style="padding-top: 20px">'
+        fileHtml.puts '<div class="container col-lg-10 col-md-10 px-0 pb-5" style="padding-top: 20px">'
     end
+else
+    fileHtml.puts '<div class="container col-lg-10 col-md-10 pt-3">'
+end
     fileHtml.puts '
     <h1>H1 Headline</h1>
     <h2>H2 Headline</h2>
