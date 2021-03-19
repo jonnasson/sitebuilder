@@ -41,7 +41,7 @@ fileHtml.puts "<!DOCTYPE html>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css' integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous'>
 </head>
 <body
-class='bg-light'
+class='bg-white'
 style='min-height: 100vh;
 position: relative;
 margin: 0 auto;"
@@ -54,10 +54,20 @@ fileHtml.puts "box-sizing: border-box;'>"
 # navbar start
 if navinput == 'yes' || navinput == 'y'
     if navbarfixed == 'yes' || navbarfixed == 'y'
-        fileHtml.puts '<div class="container col-12 bg-light">'
+        fileHtml.puts '<div class="container col-12 bg-light"'
+        if footer == "yes" || footer == 'y'
+            fileHtml.puts 'style="min-height: calc(100vh - 56px);">'
+        else
+            fileHtml.puts 'style="min-height: 100vh;">'
+        end
         fileHtml.puts '<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light bg-white border-bottom border-grey">'
         else
-        fileHtml.puts '<div class="container col-12 bg-light" style="padding-left: 0px; padding-right: 0px">'
+        fileHtml.puts '<div class="container col-12 bg-light"'
+        if footer == "yes" || footer == 'y'
+            fileHtml.puts 'style="min-height: calc(100vh - 56px); padding-left: 0px; padding-right: 0px">'
+        else
+            fileHtml.puts 'style="min-height: 100vh; padding-left: 0px; padding-right: 0px">'
+        end
         fileHtml.puts '<nav class="navbar navbar-expand-lg navbar-light bg-light bg-white border-bottom border-grey">'
     end
     fileHtml.puts '
@@ -101,7 +111,7 @@ if navinput == 'yes' || navinput == 'y'
     if navbarfixed == 'yes' || navbarfixed == 'y'
         fileHtml.puts '<div class="container col-lg-10 col-md-10 px-0 pb-5" style="padding-top: 76px">'
     else
-        fileHtml.puts '<div class="container col-lg-10 col-md-10 px-0 pb-5" style="padding-top: 20px">'
+        fileHtml.puts '<div class="container col-lg-10 col-md-10 pb-5" style="padding-top: 20px">'
     end
 else
     fileHtml.puts '<div class="container col-lg-10 col-md-10 pt-3">'
