@@ -17,27 +17,17 @@ if navinput == "yes" || navinput == "y"
     searchbar = gets.chomp
 end
 
-# puts 'Which color should your background have'
-# background = gets.chomp
-
-#image slider?
-# if yes then how many (default e.g. 3)
-#hero banner
-# cards
-# if yes how many cards
-# buttons
-
 # INPUT END
 
 # HTML FILE START
-fileHtml = File.new("new.html", "w+")
+fileHtml = File.new("index.html", "w+")
 fileHtml.puts "<!DOCTYPE html>
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>#{sitename}</title>
-    <link rel='stylesheet' href='stylenew.css'>
+    <link rel='stylesheet' href='style.css'>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css' integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous'>
 </head>
 <body
@@ -96,7 +86,7 @@ if navinput == 'yes' || navinput == 'y'
     fileHtml.puts '</ul>'
     if searchbar == 'yes' || searchbar == 'y'
         fileHtml.puts '<form class="form-inline my-0 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" style="max-width: 200px; margin-right: 10px;" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-0 my-sm-0" type="submit">Search</button>
       </form>'
     end
@@ -117,17 +107,17 @@ else
     fileHtml.puts '<div class="container col-lg-10 col-md-10 pt-3">'
 end
     fileHtml.puts '
-    <h1>H1 Headline</h1>
-    <h2>H2 Headline</h2>
-    <h3>H3 Headline</h3>
+    <h1>Your</h1>
+    <h2>Content</h2>
+    <h3>Here</h3>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.'
     fileHtml.puts '
     <p>
-    <h1>H1 Headline</h1>
-    <h2>H2 Headline</h2>
-    <h3>H3 Headline</h3>
+    <h1>Focus</h1>
+    <h2>on the</h2>
+    <h3>important stuff</h3>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis quis quam in voluptas aperiam tempora? Minima necessitatibus iure aliquam optio reiciendis placeat? Fuga quas ab exercitationem earum natus laborum deleniti.
@@ -159,12 +149,8 @@ fileHtml.close()
 
 # CSS FILE START
 
-fileCSS = File.new("stylenew.css", "w+")
-fileCSS.puts "
-.navbar {
-    
-}
-"
+fileCSS = File.new("style.css", "w+")
+fileCSS.puts ""
 fileCSS.close()
 
 # CSS FILE END
